@@ -1,0 +1,24 @@
+{
+  "name": "fedot/orderushero",
+  "description": "OrderusHero Demo",
+  "type": "library",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Fedot Serghei",
+      "email": "fedot@live.com",
+      "homepage": "https://fedotdev.com",
+      "role": "Developer"
+    }
+  ],
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Emagia\\": "src/"
+    }
+  },
+  "require": {
+    "phpunit/phpunit": "^6.3@dev"
+  }
+}

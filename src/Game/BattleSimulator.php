@@ -21,7 +21,7 @@
             $this->setPositions();
         }
 
-        public function setPositions()
+        private function setPositions()
         {
             $attacker = $this->attacker;
             $defender = $this->defender;
@@ -47,7 +47,7 @@
             $this->simulate();
         }
 
-        public function simulate()
+        private function simulate()
         {
             $turns = 1;
             while ($this->defender->getStat('hp') >= 0 && $turns <= $this->totalTurns)
@@ -66,7 +66,6 @@
 
                 if (!$dodgeAttack)
                 {
-
                     if ($this->defender->hasSpecialSkills()):
                         $defendSkill = $this->defender->defenseLuck();
                         if ($defendSkill != false):
@@ -113,8 +112,7 @@
             echo $this->console->info($this->checkWinner()->name . ' wins. HOORAY!') . PHP_EOL;
         }
 
-
-        public function checkWinner()
+        private function checkWinner()
         {
             $winner = ($this->defender->getStat('hp') > $this->attacker->getStat('hp')) ? $this->defender : $this->attacker;
 
@@ -131,23 +129,23 @@
             return $this->winner;
         }
 
-        public function meleeAttack()
+        private function meleeAttack()
         {
             $newHp = $this->defender->getStat('hp') - $this->damage;
             $this->defender->setStat('hp',$newHp);
         }
 
-        public function damageAmount()
+        private function damageAmount()
         {
             $this->damage = $this->attacker->getStat('str') - $this->defender->getStat('def');
         }
 
-        public function logAttack()
+        private function logAttack()
         {
             echo $this->attacker->name . '(' . $this->attacker->stats['hp'] . ' hp)) damaged ' . $this->defender->name . '(' . $this->defender->stats['hp'] . ' hp) with ' . $this->damage . ' damage.' . PHP_EOL;
         }
 
-        public function checkHealth()
+        private function checkHealth()
         {
             if ($this->attacker->getStat('hp') <= 0 || $this->defender->getStat('hp') <= 0) return true;
         }
